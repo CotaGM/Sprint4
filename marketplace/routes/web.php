@@ -1,23 +1,21 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Productos;
+use App\Models\Producto;
 
 Route::get('/', function () {
-    return view('home', [
-        "productos" => Productos::all() 
-     ]);
+    return view('home');
 });
 
 Route::get('/productos', function () {
     return view('productos', [
-       "productos" => Productos::all() 
+        'productos' => Producto::simplePaginate(6)
     ]);
 });
 
 Route::get('/productos/{id}', function ($id) {
-    $producto = Productos::find($id);
-    return view("producto", ["producto" => $producto]);
+    $producto = Producto::find($id);
+    return view('producto', ['producto' => $producto]);
 });
 
 Route::get('/nosotros', function () {
