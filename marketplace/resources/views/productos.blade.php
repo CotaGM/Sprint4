@@ -1,11 +1,12 @@
 <x-layout>
     <x-slot:heading>
-        Productos
+        Producto
     </x-slot:heading>
-    <h1>Aca van los productos por categoría</h1> 
-    
-        @foreach ($productos as $producto)
-          <li><strong>{{ $producto['titulo']}}:</strong> Precio por unidad {{$producto['precio']}}</li>
-        @endforeach
-    
+    <h1>Aca va el detalle del producto</h1> 
+      
+    <h2 class = "font-bold text-lg">{{$producto ['titulo'] }}</h2>
+
+    <p>
+       Este producto tiene un precio por unidad de  {{$producto ['precio'] }}
+    </p>
 </x-layout>
