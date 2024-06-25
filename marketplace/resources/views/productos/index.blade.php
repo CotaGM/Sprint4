@@ -1,9 +1,6 @@
 <x-layout>
-    <x-slot:heading>
-        Productos
-    </x-slot:heading>
 
-    <ul class="flex flex-wrap -mx-4">
+      <div class="space-y-4"> 
 
         @foreach ($productos as $producto)
             <li class="w-full md:w-1/3 px-4 mb-4">
@@ -23,9 +20,7 @@
                 </a>
             </li>
         @endforeach
-        <div>
-          {{ $productos->links() }}  
-        </div>
-    </ul>
+        
+    
+    </div>
 </x-layout>
-
