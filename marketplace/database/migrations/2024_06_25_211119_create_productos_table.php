@@ -16,11 +16,12 @@ return new class extends Migration
             $table->string('titulo');
             $table->string('descripcion');
             $table->string('precio');
-            $table->date('artesano');
+            $table->string('artesano');
             $table->string('localidad');
             $table->string('pais');
             $table->string('tipo');
             $table->string('material');
+            $table->string('imagen');
             $table->timestamps();
         });
     }

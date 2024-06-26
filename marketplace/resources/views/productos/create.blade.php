@@ -52,7 +52,7 @@
 
       <div class="form-group mb-4">
           <label for="imagen" class="block text-sm font-medium leading-6 text-gray-900">Imagen</label>
-            <input type="file" id="logo" name="logo" class="form-control border border-gray-300 rounded-lg p-2 w-full">
+            <input type="file" id="imagen" name="imagen" class="form-control border border-gray-300 rounded-lg p-2 w-full">
         </div>
 
         @error('imagen')

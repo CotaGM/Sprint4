@@ -9,6 +9,8 @@
                      <div>
                         @if($producto->imagen)
                             <img class="img-fluid" src="/storage/{{ $producto->imagen }}" class="mb-4 w-full h-auto object-cover rounded-lg">
+                            <img src="{{ asset($producto->imagen) }}" alt="Imagen del producto">
+
                         @endif
                         <div>
                             <strong>{{ $producto->titulo }}</strong>
