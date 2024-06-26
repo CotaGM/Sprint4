@@ -3,20 +3,13 @@
       <div class="space-y-4"> 
 
         @foreach ($productos as $producto)
-            <li class="w-full md:w-1/3 px-4 mb-4">
-            <img src="{{ $producto->imagen }}" alt="{{ $producto->titulo }}" width="200">
+            <img src="{{ $producto->imagen }}" alt="{{ $producto->titulo }}" width="350">
                     </a>
-                     <div>
-                        @if($producto->imagen)
-                            <img class="img-fluid" src="/storage/{{ $producto->imagen }}" class="mb-4 w-full h-auto object-cover rounded-lg">
-                            <img src="{{ asset($producto->imagen) }}" alt="Imagen del producto">
-
-                        @endif
                         <div>
                             <strong>{{ $producto->titulo }}</strong>
                         </div>
                         <div>
-                            Tiene un costo por unidad de {{ $producto->precio }}.
+                            {{ $producto->precio }}€
                         </div>
                     </div>
                 </a>
