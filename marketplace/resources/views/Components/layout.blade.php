@@ -21,7 +21,7 @@
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
               <x-nav-link href="/productos" :active="request()->is('productos')">Productos</x-nav-link>
-              <x-nav-link href="/nosotros" :active="request()->is('nosotros')">Nosotros</x-nav-link>
+              <x-nav-link href="/nosotros" :active="request()->is('nosotros')">Ventas</x-nav-link>
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@
     <div class="relative">
       <img src="{{ asset('images/portada3.png') }}" alt="Descripción de la imagen" class="w-full h-64 object-cover object-center">
       <div class="absolute inset-0 flex items-center justify-center">
-        <h1 class="text-3xl font-bold tracking-tight text-gray-900 bg-white bg-opacity-75 px-4 py-2 rounded">{{$heading}}</h1>
+      
       </div>
     </div>
   </header>

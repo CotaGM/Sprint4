@@ -1,23 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Producto;
+use App\Http\Controllers\ProductoController;
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::view('/', 'home' )->name('home');
 
-Route::get('/productos', function () {
-    return view('productos', [
-        'productos' => Producto::simplePaginate(6)
-    ]);
-});
+    Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
+    Route::get('/productos/create', [ProductoController::class, 'create'])->name('productos.create');
+    Route::post('/productos/create', [ProductoController::class, 'store'])->name('productos.store');
+    
+    
+    Route::get('/productos/{id}', [ProductoController::class, 'show'])->name('productos.show');
+    Route::get('/productos/{id}/edit', [ProductoController::class, 'edit'])->name('productos.edit');
+    Route::put('/productos/{id}', [ProductoController::class, 'update'])->name('productos.update');
+    Route::delete('/productos/{id}', [ProductoController::class, 'destroy'])->name('productos.destroy');
 
-Route::get('/productos/{id}', function ($id) {
-    $producto = Producto::find($id);
-    return view('producto', ['producto' => $producto]);
-});
 
-Route::get('/nosotros', function () {
-    return view('nosotros');
-});
