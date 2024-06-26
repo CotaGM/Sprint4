@@ -59,11 +59,11 @@ public function show(Producto $producto) {
 }
 
 
-    public function edit(Producto $id){
+    public function edit(Producto $producto){
         return view('productos.edit', compact('producto'));
     }
 
-    public function update(Request $request, Producto $id){
+    public function update(Request $request, Producto $producto){
         $data = $request->validate([
             'titulo' => 'required|string|max:100',
             'precio' => 'required|string|max:100',
@@ -76,11 +76,11 @@ public function show(Producto $producto) {
             'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
     
-        $id->update($data);
+        $producto->update($data);
         return redirect()->route('productos.index');
     }
 
-    public function destroy(Producto $id){
+    public function destroy(Producto $producto){
         $producto->delete();
         return redirect()->route('productos.index');
     }

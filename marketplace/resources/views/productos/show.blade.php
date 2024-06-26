@@ -10,4 +10,8 @@
     <p><strong>Tipo: </strong>{{ $producto->tipo }}</p>
     <p><strong>Material: </strong>{{ $producto->material}}</p>
 
+    <p class="mt-6">
+    <a href="{{ route('productos.edit', $producto->id) }}" class="text-white font-medium text-sm px-5 py-3 bg-rose-300 hover:bg-rose-500 focus:ring-3 focus:outline-none rounded-lg ">Editar</a>
+    </p>
+
 </x-layout>
