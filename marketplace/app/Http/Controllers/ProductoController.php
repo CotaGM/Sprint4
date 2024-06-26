@@ -28,7 +28,6 @@ class ProductoController extends Controller{
             'pais' => 'required|string|max:100',
             'tipo' => 'required|string|max:100',
             'material' => 'required|string|max:100',
-            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         Producto::create($data);
@@ -54,7 +53,6 @@ class ProductoController extends Controller{
             'pais' => 'required|string|max:100',
             'tipo' => 'required|string|max:100',
             'material' => 'required|string|max:100',
-            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
     
         $producto->update($data);

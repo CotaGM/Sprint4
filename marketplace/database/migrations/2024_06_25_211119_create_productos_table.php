@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('pais');
             $table->string('tipo');
             $table->string('material');
-            $table->string('imagen');
             $table->timestamps();
         });
     }
