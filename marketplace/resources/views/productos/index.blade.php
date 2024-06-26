@@ -1,21 +1,15 @@
 <x-layout>
 
       <div class="space-y-4"> 
-
+      <ul>
         @foreach ($productos as $producto)
-            <img src="{{ $producto->imagen }}" alt="{{ $producto->titulo }}" width="350">
-                    </a>
-                        <div>
-                            <strong>{{ $producto->titulo }}</strong>
-                        </div>
-                        <div>
-                            {{ $producto->precio }}€
-                        </div>
-                    </div>
+            <li>
+                <a href="/productos/{{ $producto['id'] }}" >
+                <img src="{{ $producto->imagen }}" alt="{{ $producto->titulo }}" width="350">
+                   <strong> {{ $producto->titulo }} <strong>
+                   <p>{{ $producto->precio }}€</p>
                 </a>
             </li>
         @endforeach
-        
-    
-    </div>
+    </ul>
 </x-layout>
