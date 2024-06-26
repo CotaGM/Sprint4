@@ -54,15 +54,16 @@ class ProductoController extends Controller{
 
     return redirect()->route('productos.index')->with('success', 'Producto creado exitosamente.');
 }
-    public function show(Producto $producto){
-        return view('productos.show', compact('producto'));
-    }
+public function show(Producto $producto) {
+    return view('productos.show', compact('producto'));
+}
 
-    public function edit(Producto $producto){
+
+    public function edit(Producto $id){
         return view('productos.edit', compact('producto'));
     }
 
-    public function update(Request $request, Producto $producto){
+    public function update(Request $request, Producto $id){
         $data = $request->validate([
             'titulo' => 'required|string|max:100',
             'precio' => 'required|string|max:100',
@@ -75,11 +76,11 @@ class ProductoController extends Controller{
             'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
     
-        $producto->update($data);
+        $id->update($data);
         return redirect()->route('productos.index');
     }
 
-    public function destroy(Producto $producto){
+    public function destroy(Producto $id){
         $producto->delete();
         return redirect()->route('productos.index');
     }
