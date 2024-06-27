@@ -5,8 +5,8 @@
             <li>
                 <a href="/productos/{{ $producto['id'] }}" >
                 <img src="{{ $producto->imagen }}" alt="{{ $producto->titulo }}" width="350">
-                   <strong> {{ $producto->titulo }} <strong>
-                   <p>{{ $producto->precio }}€</p>
+                   <strong> {{ $producto->titulo }} </strong>
+                   <h2>{{ $producto->precio }}€</h2>
                 </a>
             </li>
         @endforeach

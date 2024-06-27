@@ -1,12 +1,12 @@
 <x-layout>
-<div class="container">
+  <div class="container">
     <div class="col-12">
-<div class="space-y-12">
-  <div class="border-b border-gray-900/10 pb-12">
+    <div class="space-y-12">
+    <div class="border-b border-gray-900/10 pb-12">
     <h2 class="text-base font-semibold leading-7 text-gray-900">Subir producto</h2>
     <p class="mt-1 text-sm leading-6 text-gray-600">El producto se mostrará en la página inmediatamente al momento de guardar.</p>
 
-<form method="POST" action="{{ route('productos.update', $producto->id) }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('productos.update', $producto->id) }}" enctype="multipart/form-data">
 @csrf
 @method('PUT')
 
@@ -111,6 +111,7 @@
       @error('tipo')
             <p class="text-red-500 text-sm">{{ $message }}</p>
             @enderror
+
 <!-- MATERIAL -->
        <div class="sm:col-span-3">
         <label for="material" class="block text-sm font-medium leading-6 text-gray-900">Material</label>
@@ -133,9 +134,16 @@
                          <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Guardar cambios</button>
                        </div>
                     </div>
-                </form>
-            </div>
-        </div>
+         
+      <!-- BOTON DELETE -->
+      <form method="POST" action="{{ route('productos.destroy', $producto->id) }}" class="mt-6">
+      @csrf
+      @method('DELETE')
+      <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Eliminar</button>
+      </form>              
+    </form>
+    </div>
+    </div>
     </div>
 </div>
 </x-layout>
