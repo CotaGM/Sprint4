@@ -1,6 +1,6 @@
 <x-layout>
 
-<img src="{{ $producto->imagen }}" alt="{{ $producto->titulo }}" width="500">
+<img src="{{ asset($producto->imagen) }}" width="500">
     <p><strong>{{ $producto->titulo }}</strong></p>
     <p><strong>Precio: </strong>{{ $producto->precio }}€</p>
     <p><strong>Descripcion: </strong>{{ $producto->descripcion}}</p>
@@ -11,7 +11,7 @@
     <p><strong>Material: </strong>{{ $producto->material}}</p>
 
     <p class="mt-6">
-    <a href="{{ route('productos.edit', $producto->id) }}" class="text-white font-medium text-sm px-5 py-3 bg-rose-300 hover:bg-rose-500 focus:ring-3 focus:outline-none rounded-lg ">Editar</a>
+    <a href="{{ route('productos.edit', $producto->id) }}" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Editar</a>
     </p>
 
 </x-layout>

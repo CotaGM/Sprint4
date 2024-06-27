@@ -4,20 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProductoController extends Controller{
 
-    public function index()
-    {
+    public function index(){
         $productos = Producto::all();
         return view('productos.index', compact('productos'));
     }
 
+    // CREATE
     public function create(){
         return view('productos.create');
     }
-    public function store(Request $request)
-{
+     
+    // Guardar la data 
+    public function store(Request $request){
     $request->validate([
         'titulo' => 'required|string|max:100',
         'precio' => 'required|string|max:100',
@@ -52,18 +55,22 @@ class ProductoController extends Controller{
         'imagen' => '/imagenes/' . $nombreImagen, // Guardar la ruta de la imagen en la base de datos
     ]);
 
-    return redirect()->route('productos.index')->with('success', 'Producto creado exitosamente.');
-}
-public function show(Producto $producto) {
-    return view('productos.show', compact('producto'));
-}
+    return redirect()->route('productos.index');
+    }
+
+    // READ
+    public function show(Producto $producto) {
+        return view('productos.show', compact('producto'));
+    }
 
 
     public function edit(Producto $producto){
         return view('productos.edit', compact('producto'));
     }
 
+    // UPDATE
     public function update(Request $request, Producto $producto){
+        
         $data = $request->validate([
             'titulo' => 'required|string|max:100',
             'precio' => 'required|string|max:100',
@@ -73,17 +80,24 @@ public function show(Producto $producto) {
             'pais' => 'required|string|max:100',
             'tipo' => 'required|string|max:100',
             'material' => 'required|string|max:100',
-            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-    
+
+            $imagen = $request->file('imagen');
+            $nombreImagen = time() . '_' . $imagen->getClientOriginalName();
+            $imagen->move(public_path('imagenes'), $nombreImagen);
+            $data['imagen'] = 'imagenes/' . $nombreImagen;
+        
+
         $producto->update($data);
+
         return redirect()->route('productos.index');
     }
-
+    
+    // DELETE
     public function destroy(Producto $producto){
+
         $producto->delete();
         return redirect()->route('productos.index');
     }
 }
-
-?>  

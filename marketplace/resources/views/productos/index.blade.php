@@ -1,5 +1,4 @@
 <x-layout>
-
       <div class="space-y-4"> 
       <ul>
         @foreach ($productos as $producto)
