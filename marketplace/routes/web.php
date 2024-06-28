@@ -17,5 +17,7 @@ Route::delete('/productos/{producto}', [ProductoController::class, 'destroy'])->
 
 Route::get('/ventas', [VentaController::class, 'index'])->name('ventas.index');
 Route::get('/ventas/create', [VentaController::class, 'create'])->name('ventas.create');
-Route::post('/ventas/create', [VentaController::class, 'create'])->name('ventas.store');
-Route::get('/ventas/{venta}', [ProductoController::class, 'show'])->name('ventas.show');
+Route::post('/ventas/create', [VentaController::class, 'store'])->name('ventas.store');
+
+
+Route::get('/ventas/{venta}', [VentaController::class, 'show'])->name('ventas.show');
