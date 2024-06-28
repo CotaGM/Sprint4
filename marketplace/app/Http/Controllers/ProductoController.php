@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 class ProductoController extends Controller{
 
     public function index(){
-        $productos = Producto::all();
+        $productos = Producto::paginate(6);
         return view('productos.index', compact('productos'));
     }
 

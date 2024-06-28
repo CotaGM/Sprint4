@@ -21,7 +21,7 @@
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
               <x-nav-link href="/productos" :active="request()->is('productos')">Productos</x-nav-link>
-              <x-nav-link href="/nosotros" :active="request()->is('nosotros')">Ventas</x-nav-link>
+              <x-nav-link href="/ventas" :active="request()->is('ventas')">Ventas</x-nav-link>
             </div>
           </div>
         </div>
@@ -62,7 +62,7 @@
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a href="/" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Home</a>
         <a href="/productos" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Productos</a>
-        <a href="/nosotros" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Nosotros</a>
+        <a href="/nosotros" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Ventas</a>
         
       </div>
       <div class="border-t border-gray-700 pb-3 pt-4">

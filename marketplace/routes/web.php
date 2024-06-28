@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\VentaController;
 
 Route::view('/', 'home')->name('home');
 
@@ -14,3 +15,7 @@ Route::get('/productos/{producto}/edit', [ProductoController::class, 'edit'])->n
 Route::put('/productos/{producto}', [ProductoController::class, 'update'])->name('productos.update');
 Route::delete('/productos/{producto}', [ProductoController::class, 'destroy'])->name('productos.destroy');
 
+Route::get('/ventas', [VentaController::class, 'index'])->name('ventas.index');
+Route::get('/ventas/create', [VentaController::class, 'create'])->name('ventas.create');
+Route::post('/ventas/create', [VentaController::class, 'create'])->name('ventas.store');
+Route::get('/ventas/{venta}', [ProductoController::class, 'show'])->name('ventas.show');
