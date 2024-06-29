@@ -1,7 +1,7 @@
 <x-layout>
 
     
-    <p><strong>fecha: </strong>{{ $venta->fecha_venta}}€</p>
+    <p><strong>Fecha venta: </strong>{{ $venta->fecha_venta}}</p>
     <p><strong>ID producto: </strong>{{ $venta->id_producto}}</p>
     <p><strong>ID venta: </strong>{{ $venta->id}}</p>
     <p><strong>Cantidad: </strong>{{ $venta->cantidad }}</p>

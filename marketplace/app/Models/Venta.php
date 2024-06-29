@@ -11,9 +11,8 @@ class Venta extends Model{
   
     protected $table = 'ventas';
 
-    protected $fillable = ['id_producto', 'fecha_venta', 'total_venta', 'cantidad'];
+    protected $fillable = ['fecha_venta', 'id_producto', 'cantidad', 'total_venta'];
 
-    
     public function productos(){
         return $this->belongsTo(Producto::class);
     }
