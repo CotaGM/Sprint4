@@ -1,3 +1,4 @@
+
 <x-layout>
       <div class="space-y-4"> 
       <ul>
@@ -5,8 +6,8 @@
             <li>
                 <a href="/productos/{{ $producto['id'] }}" >
                 <img src="{{ $producto->imagen }}" alt="{{ $producto->titulo }}" width="350">
-                   <strong> {{ $producto->titulo }} </strong>
-                   <h2>{{ $producto->precio }}€</h2>
+                   <strong> {{ $producto->titulo }} <strong>
+                   <p>{{ $producto->precio }}€</p>
                 </a>
             </li>
         @endforeach
