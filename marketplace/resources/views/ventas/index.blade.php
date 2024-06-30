@@ -1,20 +1,20 @@
 <x-layout>
-    <div class="container">
-        <h1>Resumen de Ventas</h1>
+    <div class="mt-4">
         <table class="table">
             <thead>
                 <tr>
-                    <th style="padding-right: 60px;">ID venta</th>
-                    <th style="padding-right: 60px;">ID producto</th>
-                    <th style="padding-right: 60px;">Fecha de Venta</th>
-                    <th style="padding-right: 60px;">Total productos</th>
-                    <th style="padding-right: 60px;">Total venta</th>
+                    <th style="padding-right: 120px;">ID venta</th>
+                    <th style="padding-right: 120px;">ID producto</th>
+                    <th style="padding-right: 120px;">Fecha de Venta</th>
+                    <th style="padding-right: 120px;">Total productos</th>
+                    <th style="padding-right: 120px;">Total venta</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($ventas as $venta)
-                <tr>
-                    <td style="padding-right: 60px;">{{ $venta->id }}</td>
+                <tr style="background-color: #ffffff; border: 1px solid #dee2e6;">
+                
+                <td style="padding-right: 60px;">{{ $venta->id }}</td>
                     <td style="padding-right: 60px;">{{ $venta->id_producto }}</td>
                     <td style="padding-right: 60px;">{{ $venta->fecha_venta }}</td>
                     <td style="padding-right: 60px;">{{ $venta->cantidad }}</td>
@@ -27,7 +27,7 @@
             <form action="{{ route('ventas.destroy', $venta->id) }}" method="POST" class="inline"> 
             @csrf
             @method('DELETE')
-            <button type="submit" class="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Borrar</button>
+            <button type="submit" class="rounded-md bg-slate-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Borrar</button>
             </form>
                         </div>
                     </td>
@@ -35,5 +35,8 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="mt-4">
+            {{ $ventas->links() }}
+        </div>
     </div>
 </x-layout>

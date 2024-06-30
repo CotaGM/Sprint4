@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class VentaController extends Controller{
     
     public function index(){
-        $ventas = Venta::paginate(15);
+        $ventas = Venta::paginate(10);
         return view('ventas.index', compact('ventas'));
     }
 
