@@ -41,18 +41,13 @@
                 <p class="text-red-500 text-sm">{{ $message }}</p>
             @enderror
 
-            <!-- BOTONES -->
-            <div class="flex justify-end mt-6">
-                <a href="{{ route('ventas.show', $venta->id) }}" class="text-sm font-semibold leading-6 text-gray-900 mr-4">Cancelar</a>
-                <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Guardar cambios</button>
+<!-- BOTONES DE ACTULIZAR Y CANCELAR-->
+           <div class="mt-6 flex items-center justify-end gap-x-6">
+              <a href="{{ route('productos.index') }}" class="text-sm font-semibold leading-6 text-gray-900">Cancelar</a>
+               <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Actualizar</button>
             </div>
+ 
 
-            <!-- BOTÓN DELETE -->
-            <form method="POST" action="{{ route('ventas.destroy', $venta->id) }}" class="mt-6">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Eliminar</button>
-            </form>
         </form>
     </div>
 </x-layout>
