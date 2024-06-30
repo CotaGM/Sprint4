@@ -1,6 +1,5 @@
 <x-layout>
 
-    
     <p><strong>Fecha: </strong>{{ $venta->fecha_venta}}</p>
     <p><strong>ID producto: </strong>{{ $venta->id_producto}}</p>
     <p><strong>ID venta: </strong>{{ $venta->id}}</p>
