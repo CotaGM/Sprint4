@@ -1,14 +1,18 @@
 <x-layout>
     <div class="space-y-4">
-        <ul>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             @foreach ($productos as $producto)
-                <li>
-                    <img src="{{ asset($producto->imagen) }}" width="350">
-                        <strong>{{ $producto->titulo }}</strong>
-                        <p>{{ $producto->precio }}€</p>
+                <div class="border p-4 rounded-lg">
+                    <a href="{{ route('productos.show', $producto->id) }}">
+                        <img src="{{ asset($producto->imagen) }}" width="200" class="w-full h-70 object-cover mb-4">
+                        <strong class="block text-xl mb-2">{{ $producto->titulo }}</strong>
+                        <p class="text-lg">{{ $producto->precio }}€</p>
                     </a>
-                </li>
+                </div>
             @endforeach
-        </ul>
+        </div>
+        <div class="mt-4">
+            {{ $productos->links() }}
+        </div>
     </div>
 </x-layout>
