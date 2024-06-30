@@ -1,50 +1,53 @@
 <x-layout>
-<div class="container">
-    <h1>Crear Venta</h1>
-    <form method="post" action="{{ route('ventas.store') }}">
-        @csrf
+    <div class="container">
+        <h1>Editar Venta</h1>
+        <form method="POST" action="{{ route('ventas.update', $venta->id) }}">
+            @csrf
+            @method('PUT')
 
-        <div class="form-group">
+            <!-- Fecha -->
+            <div class="form-group">
                 <label for="fecha_venta">Fecha de Venta:</label>
-                <input type="date" id="fecha_venta" name="fecha_venta" class="form-control" value="{{ old('fecha_venta') }}" required>
+                <input type="date" id="fecha_venta" name="fecha_venta" class="form-control" value="{{ $venta->fecha_venta }}" required>
             </div>
-
-        @error('fecha_venta')
-            <p class="text-red-500 text-sm">{{ $message }}</p>
+            @error('fecha_venta')
+                <p class="text-red-500 text-sm">{{ $message }}</p>
             @enderror
 
+            <!-- ID PRODUCTO -->
             <div class="form-group">
-            <label for="quantities">ID Producto</label>
-            <input type="number" name="id_producto" id="id_producto" class="form-control" placeholder="Ej: 1,2,3 (una cantidad por cada producto)">
-        </div>
-
-        @error('id_producto')
-            <p class="text-red-500 text-sm">{{ $message }}</p>
+                <label for="id_producto">ID Producto:</label>
+                <input type="number" id="id_producto" name="id_producto" class="form-control" value="{{ $venta->id_producto }}" required>
+            </div>
+            @error('id_producto')
+                <p class="text-red-500 text-sm">{{ $message }}</p>
             @enderror
 
-        <div class="form-group">
-            <label for="quantities">Cantidad</label>
-            <input type="number" name="cantidad" id="cantidad" class="form-control" placeholder="Ej: 1,2,3 (una cantidad por cada producto)">
-        </div>
-
-        @error('cantidad')
-            <p class="text-red-500 text-sm">{{ $message }}</p>
-            @enderror
-
+            <!-- CANTIDAD -->
             <div class="form-group">
-            <label for="quantities">Total venta</label>
-            <input type="number" name="total_venta" id="total_venta" class="form-control" placeholder="Ej: 1,2,3 (una cantidad por cada producto)">
-        </div>
-
-        @error('cantidad')
-            <p class="text-red-500 text-sm">{{ $message }}</p>
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" class="form-control" value="{{ $venta->cantidad }}" required>
+            </div>
+            @error('cantidad')
+                <p class="text-red-500 text-sm">{{ $message }}</p>
             @enderror
 
-<!-- BOTONES DE CREAR Y CANCELAR -->
-<div class="mt-6 flex items-center justify-end gap-x-6">
-  <a class="text-sm font-semibold leading-6 text-gray-900">Cancelar</button>
-  <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">CREAR VENTA</button>
-</div>
-    </form>
-</div>
+            <!-- TOTAL VENTA -->
+            <div class="form-group">
+                <label for="total_venta">Total Venta:</label>
+                <input type="number" id="total_venta" name="total_venta" class="form-control" value="{{ $venta->total_venta }}" required>
+            </div>
+            @error('total_venta')
+                <p class="text-red-500 text-sm">{{ $message }}</p>
+            @enderror
+
+<!-- BOTONES DE ACTULIZAR Y CANCELAR-->
+           <div class="mt-6 flex items-center justify-end gap-x-6">
+              <a href="{{ route('productos.index') }}" class="text-sm font-semibold leading-6 text-gray-900">Cancelar</a>
+               <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Actualizar</button>
+            </div>
+ 
+
+        </form>
+    </div>
 </x-layout>

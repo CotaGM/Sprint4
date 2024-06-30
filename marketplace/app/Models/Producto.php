@@ -15,7 +15,7 @@ class Producto extends Model {
     
     
     public function ventas(){
-        return $this->hasMany(Venta::class);
+        return $this->belongsTo(Venta::class);
     }
 }
 

@@ -45,16 +45,15 @@ class VentaController extends Controller{
         return view('ventas.edit', compact('venta'));
     }
 
-    // UPDATE
+    // Método update
     public function update(Request $request, Venta $venta){
-        
         $data = $request->validate([
             'fecha_venta' => 'required|date',
             'id_producto' => 'required|integer',
             'cantidad' => 'required|integer',
             'total_venta' => 'required|numeric',
         ]);
-        
+
         $venta->update($data);
 
         return redirect()->route('ventas.index');

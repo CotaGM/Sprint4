@@ -73,8 +73,8 @@ class ProductoController extends Controller{
         
         $data = $request->validate([
             'titulo' => 'required|string|max:100',
-            'precio' => 'required|decimal|max:100',
-            'descripcion' => 'required|text|max:1000',
+            'precio' => 'required|numeric|max:100',
+            'descripcion' => 'required|string|max:1000',
             'artesano' => 'required|string|max:100',
             'localidad' => 'required|string|max:100',
             'pais' => 'required|string|max:100',
