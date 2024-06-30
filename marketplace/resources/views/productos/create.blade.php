@@ -14,7 +14,7 @@
         <label for="titulo" class="block text-sm font-medium leading-6 text-gray-900">Título</label>
         <div class="mt-2">
           <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-            <input type="text" name="titulo" id="titulo" autocomplete="titulo" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input type="text" name="titulo" id="titulo" autocomplete="titulo" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"required>
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@
       <div class="col-span-full">
         <label for="descripcion" class="block text-sm font-medium leading-6 text-gray-900">Descripción</label>
         <div class="mt-2">
-          <textarea id="descripcion" name="descripcion" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+          <textarea id="descripcion" name="descripcion" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"required></textarea>
         </div>
         <p class="mt-3 text-sm leading-6 text-gray-600">Escribe una breve descripción del producto.</p>
       </div>
@@ -38,7 +38,7 @@
       <div class="sm:col-span-3">
         <label for="precio" class="block text-sm font-medium leading-6 text-gray-900">Precio</label>
         <div class="mt-2">
-          <input type="text" name="precio" id="precio" autocomplete="precio" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <input type="text" name="precio" id="precio" autocomplete="precio" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"required>
         </div>
       </div>
       @error('precio')
@@ -49,7 +49,7 @@
         <div class="sm:col-span-3">
           <label for="imagen" class="block text-sm font-medium leading-6 text-gray-900">Imagen</label>
           <div class="mt-2">
-            <input type="file" id="imagen" name="imagen" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input type="file" id="imagen" name="imagen" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"required>
           </div>
         </div>
         @error('imagen')
@@ -60,7 +60,7 @@
       <div class="sm:col-span-3">
         <label for="artesano" class="block text-sm font-medium leading-6 text-gray-900">Artesano</label>
         <div class="mt-2">
-          <input type="text" name="artesano" id="artesano" autocomplete="artesano" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <input type="text" name="artesano" id="artesano" autocomplete="artesano" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"required>
         </div>
       </div>
       @error('artesano')
@@ -71,7 +71,7 @@
       <div class="sm:col-span-3">
         <label for="localidad" class="block text-sm font-medium leading-6 text-gray-900">Localidad</label>
         <div class="mt-2">
-          <input type="text" name="localidad" id="localidad" autocomplete="localidad" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <input type="text" name="localidad" id="localidad" autocomplete="localidad" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"required>
         </div>
       </div>
       @error('localidad')
@@ -113,7 +113,7 @@
       <div class="sm:col-span-3">
         <label for="material" class="block text-sm font-medium leading-6 text-gray-900">Material</label>
         <div class="mt-2">
-          <input type="text" name="material" id="material" autocomplete="material" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <input type="text" name="material" id="material" autocomplete="material" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"required>
         </div>
       </div>
       @error('material')
