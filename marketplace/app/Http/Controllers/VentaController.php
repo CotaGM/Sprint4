@@ -36,10 +36,8 @@ class VentaController extends Controller{
         return redirect()->route('ventas.index');
     }
     // READ
-    public function show($id) {
-        $venta = Venta::findOrFail($id);
-        $producto = $venta->producto; 
-        return view('ventas.show', compact('venta', 'producto'));
+    public function show(Venta $venta) {
+        return view('ventas.show', compact('venta'));
     }
 
 

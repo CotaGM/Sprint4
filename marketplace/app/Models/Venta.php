@@ -14,6 +14,6 @@ class Venta extends Model{
     protected $fillable = ['fecha_venta', 'id_producto', 'cantidad', 'total_venta'];
 
     public function productos(){
-        return $this->belongsTo(Producto::class, 'id_producto');
+        return $this->belongsTo(Producto::class);
     }
 }
