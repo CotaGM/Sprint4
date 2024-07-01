@@ -10,7 +10,7 @@
             <div class="border p-4 rounded-lg">
                 <a href="{{ route('productos.show', $producto->id) }}">
                     <img src="{{ asset($producto->imagen) }}" class="w-full h-64 object-cover mb-4" alt="{{ $producto->titulo }}">
-                    <p class="text-sm font-semibold text-gray-600 sm:text-base dark:text-white">{{ $producto->titulo }}</p>
+                    <p class="font-size: 9px; font-semibold text-gray-600 sm:text-base dark:text-white">{{ $producto->titulo }}</p>
                 </a>
             </div>
         @endforeach
