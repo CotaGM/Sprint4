@@ -10,9 +10,7 @@ return new class extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_producto')->constrained()->onDelete('cascade');
             $table->date('fecha_venta');
-            $table->integer('cantidad');
             $table->decimal('total_venta');
             $table->timestamps();
         });
