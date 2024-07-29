@@ -14,45 +14,42 @@ class VentaController extends Controller{
     }
 
     // CREATE
-    public function create(){
-        $productos = Producto::all(); 
+    public function create()
+    {
+        $productos = Producto::all(); // Obtener todos los productos para mostrar en el formulario
         return view('ventas.create', compact('productos'));
     }
 
-    // Guardar la data 
-    public function store(Request $request){
-        
-        $request->validate([
-            'fecha_venta' => 'required|date',
-            'productos' => 'required|array',
-            'productos.*.id' => 'required|integer|exists:productos,id',
-            'productos.*.cantidad' => 'required|integer',
-           
-        ]);
+    public function store(Request $request)
+{
+    $request->validate([
+        'fecha_venta' => 'required|date',
+        'productos' => 'required|array',
+        'productos.*.id' => 'required|integer|exists:productos,id',
+        'productos.*.cantidad' => 'required|integer',
+    ]);
 
-        // Calcular el total de la venta
-        $totalVenta = 0;
-        foreach ($request->productos as $producto) {
+    $totalVenta = 0;
+    foreach ($request->productos as $producto) {
         $productoDB = Producto::find($producto['id']);
         $totalVenta += $producto['cantidad'] * $productoDB->precio;
     }
-        // Crear la nueva venta
-        $venta = Venta::create([
-            'fecha_venta' => $request->fecha_venta,
-            'total_venta' => $totalVenta,
-            
+
+    $venta = Venta::create([
+        'fecha_venta' => $request->fecha_venta,
+        'total_venta' => $totalVenta,
+    ]);
+
+    foreach ($request->productos as $producto) {
+        $venta->productos()->attach($producto['id'], [
+            'cantidad' => $producto['cantidad'],
+            'precio' => $productoDB->precio,
+            'producto_id' => $producto['id'] // Asegúrate de guardar el 'producto_id' en la tabla pivote
         ]);
-
-        // Asociar productos a la venta
-        foreach ($request->productos as $producto) {
-            $venta->productos()->attach($producto['id'], [
-            'cantidad' => $producto['cantidad'], 
-            'precio' => Producto::find($producto['id'])->precio
-            ]);
-        }
-
-        return redirect()->route('ventas.index');
     }
+
+    return redirect()->route('ventas.index');
+}
 
     // READ
     public function show(Venta $venta) {
@@ -84,3 +81,4 @@ class VentaController extends Controller{
         return redirect()->route('ventas.index');
     }
 }
+
