@@ -27,26 +27,27 @@ class VentaController extends Controller{
             'productos' => 'required|array',
             'productos.*.id' => 'required|integer|exists:productos,id',
             'productos.*.cantidad' => 'required|integer',
-            'productos.*.precio' => 'required|numeric',
+           
         ]);
 
         // Calcular el total de la venta
         $totalVenta = 0;
         foreach ($request->productos as $producto) {
-            $totalVenta += $producto['cantidad'] * $producto['precio'];
-        }
-
+        $productoDB = Producto::find($producto['id']);
+        $totalVenta += $producto['cantidad'] * $productoDB->precio;
+    }
         // Crear la nueva venta
         $venta = Venta::create([
             'fecha_venta' => $request->fecha_venta,
             'total_venta' => $totalVenta,
+            
         ]);
 
         // Asociar productos a la venta
         foreach ($request->productos as $producto) {
             $venta->productos()->attach($producto['id'], [
-                'cantidad' => $producto['cantidad'],
-                'precio' => $producto['precio'],
+            'cantidad' => $producto['cantidad'], 
+            'precio' => Producto::find($producto['id'])->precio
             ]);
         }
 

@@ -23,3 +23,4 @@ Route::get('/ventas/{venta}', [VentaController::class, 'show'])->name('ventas.sh
 Route::get('/ventas/{venta}/edit', [VentaController::class, 'edit'])->name('ventas.edit');
 Route::put('/ventas/{venta}', [VentaController::class, 'update'])->name('ventas.update');
 Route::delete('/ventas/{venta}', [VentaController::class, 'destroy'])->name('ventas.destroy');
+Route::post('/ventas/finalize', [VentaController::class, 'finalize'])->name('ventas.finalize');
