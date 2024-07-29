@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Venta;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class VentaController extends Controller{
@@ -12,34 +13,50 @@ class VentaController extends Controller{
         return view('ventas.index', compact('ventas'));
     }
 
-    //CREATE
+    // CREATE
     public function create(){
-        return view('ventas.create');
+        $productos = Producto::all(); 
+        return view('ventas.create', compact('productos'));
     }
 
     // Guardar la data 
     public function store(Request $request){
+        
         $request->validate([
             'fecha_venta' => 'required|date',
-            'id_producto' => 'required|integer',
-            'cantidad' => 'required|integer',
-            'total_venta' => 'required|numeric',
+            'productos' => 'required|array',
+            'productos.*.id' => 'required|integer|exists:productos,id',
+            'productos.*.cantidad' => 'required|integer',
+            'productos.*.precio' => 'required|numeric',
         ]);
 
-        Venta::create([
+        // Calcular el total de la venta
+        $totalVenta = 0;
+        foreach ($request->productos as $producto) {
+            $totalVenta += $producto['cantidad'] * $producto['precio'];
+        }
+
+        // Crear la nueva venta
+        $venta = Venta::create([
             'fecha_venta' => $request->fecha_venta,
-            'id_producto' => $request->id_producto,
-            'cantidad' => $request->cantidad,
-            'total_venta' => $request->total_venta,
+            'total_venta' => $totalVenta,
         ]);
+
+        // Asociar productos a la venta
+        foreach ($request->productos as $producto) {
+            $venta->productos()->attach($producto['id'], [
+                'cantidad' => $producto['cantidad'],
+                'precio' => $producto['precio'],
+            ]);
+        }
 
         return redirect()->route('ventas.index');
     }
+
     // READ
     public function show(Venta $venta) {
         return view('ventas.show', compact('venta'));
     }
-
 
     public function edit(Venta $venta){
         return view('ventas.edit', compact('venta'));
@@ -66,4 +83,3 @@ class VentaController extends Controller{
         return redirect()->route('ventas.index');
     }
 }
-

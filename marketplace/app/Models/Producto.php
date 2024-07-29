@@ -15,7 +15,9 @@ class Producto extends Model {
     
     
     public function ventas(){
-        return $this->belongsTo(Venta::class);
+        return $this->belongsToMany(Producto::class, 'producto_venta')
+                    ->withPivot('cantidad', 'precio')
+                    ->withTimestamps();
     }
 }
 
