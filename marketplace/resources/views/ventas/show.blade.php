@@ -20,7 +20,7 @@
             <!-- Botones de acción -->
             <div class="flex justify-end mt-6 space-x-4">
                 <!-- Botón de eliminar -->
-                <form action="{{ route('ventas.destroy', $venta->id) }}" method="POST" class="inline">
+                <form action="{{ route('ventas.destroy', $venta->id) }}" method="POST" class="inline" onsubmit="return confirm('¿Estás seguro de que deseas borrar esta tarea?');">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="rounded-md bg-white px-3 py-2 text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Borrar</button>
