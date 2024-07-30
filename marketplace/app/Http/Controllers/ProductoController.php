@@ -27,8 +27,8 @@ class ProductoController extends Controller{
         'descripcion' => 'required|string|max:600',
         'artesano' => 'required|string|max:100',
         'localidad' => 'required|string|max:100',
-        'pais' => 'required|string|max:100',
-        'tipo' => 'required|string|max:100',
+        'pais' => 'required|max:100',
+        'tipo' => 'required|max:100',
         'material' => 'required|string|max:100',
         'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validación para imagen
     ]);

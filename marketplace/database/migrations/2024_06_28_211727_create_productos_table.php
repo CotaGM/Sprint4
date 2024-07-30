@@ -18,8 +18,8 @@ return new class extends Migration
             $table->decimal('precio');
             $table->string('artesano');
             $table->string('localidad');
-            $table->string('pais');
-            $table->string('tipo');
+            $table->enum('pais', ['Chile', 'Perú', 'México']);
+            $table->enum('tipo', ['Decoración', 'Textil', 'Cocina']);
             $table->string('material');
             $table->string('imagen');
             $table->timestamps();

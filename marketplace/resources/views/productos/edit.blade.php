@@ -13,7 +13,7 @@
 <!-- TITULO-->
   <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
     <div class="sm:col-span-4">
-      <label for="titulo" class="block text-sm font-medium leading-6 text-gray-900">Título</label>
+      <label for="titulo"  class="block text-sm font-medium leading- text-gray-900">Título</label>
       <div class="mt-2">
         <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
           <input type="text" name="titulo" id="titulo" autocomplete="titulo" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"value="{{ $producto->titulo}}"required>
@@ -25,8 +25,8 @@
           @enderror
 
   <!-- DESCRIPCION-->        
-  <div class="col-span-full">
-    <label for="descripcion" class="block text-sm font-medium leading-6 text-gray-900">Descripción</label>
+  <div class="sm:col-span-3 mb-4">
+    <label for="descripcion"  class="block text-sm font-medium leading-10 text-gray-900">Descripción</label>
      <div class="mt-2">
       <textarea id="descripcion" name="descripcion" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>{{ $producto->descripcion }}</textarea>
      </div>
@@ -38,8 +38,8 @@
           @enderror
 
  <!-- PRECIO-->         
-    <div class="sm:col-span-3">
-      <label for="precio" class="block text-sm font-medium leading-6 text-gray-900">Precio</label>
+    <div class="sm:col-span-3 mb-6">
+      <label for="precio" class="block text-sm font-medium leading-10 text-gray-900">Precio</label>
       <div class="mt-2">
         <input type="text" name="precio" id="precio" autocomplete="precio" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"value="{{ $producto->precio}}"required>
       </div>
@@ -49,18 +49,19 @@
           @enderror
 
 <!-- IMAGEN-->
-      <div class="sm:col-span-3">
-        <label for="imagen" class="block text-sm font-medium leading-6 text-gray-900">Imagen</label>
-        <div class="mt-2">
-          <input type="file" id="imagen" name="imagen" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-      </div>
-      </div>
-      @error('imagen')
-          <p class="text-red-500 text-sm">{{ $message }}</p>
-          @enderror
+      <div class="sm:col-span-3 mb-6">
+        <label for="imagen" class="block text-sm font-medium leading-10 text-gray-900">Imagen</label>
+          <div class="mt-2">
+              <p class="text-gray-600 text-sm">Archivo actual: {{ basename($producto->imagen) }}</p>
+                <input type="file" id="imagen" name="imagen" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 mt-2" value= "{{ basename($producto->imagen) }}"required>
+              </div>
+              @error('imagen')
+                <p class="text-red-500 text-sm">{{ $message }}</p>
+              @enderror
+            </div>
 
 <!-- ARTESANO-->      
-    <div class="sm:col-span-3">
+    <div class="sm:col-span-3 mb-4">
       <label for="artesano" class="block text-sm font-medium leading-6 text-gray-900">Artesano</label>
       <div class="mt-2">
         <input type="text" name="artesano" id="artesano" autocomplete="artesano" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"value="{{ $producto->artesano}}"required>
@@ -71,8 +72,8 @@
           @enderror
 
 <!-- LOCALIDAD-->
-    <div class="sm:col-span-3">
-      <label for="localidad" class="block text-sm font-medium leading-6 text-gray-900">Localidad</label>
+    <div class="sm:col-span-3 mb-6">
+      <label for="localidad" class="block text-sm font-medium leading-10 text-gray-900">Localidad</label>
       <div class="mt-2">
         <input  type="text" name="localidad" id="localidad" autocomplete="localidad"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"value="{{ $producto->localidad}}"required>
       </div>
@@ -82,8 +83,8 @@
           @enderror
 
 <!-- PAIS-->
-    <div class="sm:col-span-3">
-      <label for="pais" class="block text-sm font-medium leading-6 text-gray-900">País</label>
+    <div class="sm:col-span-3 mb-4">
+      <label for="pais" class="block text-sm font-medium leading-10 text-gray-900">País</label>
         <div class="mt-2">
          <select id="pais" name="pais" autocomplete="pais" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
           <option value="Chile" {{ $producto->pais == 'Chile' ? 'selected' : '' }}>Chile</option>
@@ -99,8 +100,8 @@
           @enderror
 
 <!-- TIPO-->          
-     <div class="sm:col-span-3">
-       <label for="tipo" class="block text-sm font-medium leading-6 text-gray-900">Tipo</label>
+     <div class="sm:col-span-3 mb-4">
+       <label for="tipo" class="block text-sm font-medium leading-10 text-gray-900">Tipo</label>
         <div class="mt-2">
          <select id="tipo" name="tipo" autocomplete="tipo" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
           <option value="Decoración" {{ $producto->tipo == 'Decoración' ? 'selected' : '' }}>Decoración</option>
@@ -114,8 +115,8 @@
           @enderror
 
 <!-- MATERIAL-->
-     <div class="sm:col-span-3">
-      <label for="material" class="block text-sm font-medium leading-6 text-gray-900">Material</label>
+     <div class="sm:col-span-2 mb-4">
+      <label for="material" class="block text-sm font-medium leading-10 text-gray-900">Material</label>
        <div class="mt-2">
         <input type="text" name="material" id="material" autocomplete="material" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"value="{{ $producto->material}}"required>
       </div>
